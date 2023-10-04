@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "python-tutorial"
+version = "0.1.0"
+description = ""
+authors = ["Min"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyperclip = "^1.8.2"
+requests = "^2.31.0"
+bs4 = "^0.0.1"
+selenium = "^4.13.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
