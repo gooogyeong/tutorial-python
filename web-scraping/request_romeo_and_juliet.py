@@ -3,9 +3,15 @@ import requests
 try:
     res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
     # print(type(res)) # <class 'requests.models.Response'>
-    res.raise_for_status()
+    res.raise_for_status() # Always call raise_for_status() after calling requests.get(). 
+                           # This will raise an exception if there was an error downloading the file and will do nothing if the download succeeded
+                           # It ensures that the download has actually worked before your program continues.
+                           # ensure that a program halts if a bad download occurs
     romeo_and_juliet_file = open('romeo_and_juliet.txt', 'wb')
-    for chunk in res.iter_content(100000):
+    for chunk in res.iter_content(100000): # iter_content() method returns “chunks” of the content on each iteration through the loop
+                                           # Each chunk is of the bytes data type,
+                                           # (100000) specifies how many bytes each chunk will contain.
+                                           # it ensures that the requests module doesn’t eat up too much memory when downloading massive files
         romeo_and_juliet_file.write(chunk)
     romeo_and_juliet_file.close()
 except Exception as exc:

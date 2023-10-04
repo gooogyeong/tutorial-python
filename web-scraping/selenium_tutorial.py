@@ -17,9 +17,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-browser = webdriver.Firefox()
+browser = webdriver.Chrome()
 browser.get('https://nostarch.com')
 htmlElem = browser.find_element(By.TAG_NAME, 'html')
 htmlElem.send_keys(Keys.END)     # scrolls to bottom
 htmlElem.send_keys(Keys.HOME)    # scrolls back to top
 # This would be useful if, for example, new content is loaded once you’ve scrolled to the bottom of the page.
+
+# # prevents chrome browser from closing
+while True:
+    pass
